@@ -1,7 +1,7 @@
-# summernote-loremipsum
+# summernote-mailmerge
 A plugin for the [Summernote](https://github.com/summernote/summernote/) WYSIWYG editor.
 
-summernote-loremipsum will insert Random Lorem Ipsum text at the cursor position in the Editor.
+summernote-mailmerge will insert defined merge field names at the cursor position in the Editor.
 
 ### Installation
 
@@ -10,7 +10,7 @@ summernote-loremipsum will insert Random Lorem Ipsum text at the cursor position
 Include the following code after Summernote:
 
 ```html
-<script src="summernote-loremipsum.js"></script>
+<script src="summernote-mailmerge.js"></script>
 ```
 
 #### 2. Supported languages
@@ -29,16 +29,16 @@ $('.summernote').summernote({
         ['para',['ul','ol','paragraph']],
         ['height',['height']],
         ['table',['table']],
-        ['insert',['lorem','media','link','hr']], // 'lorem', is the dropdown menu
+        ['insert',['mailmerge','media','link','hr']], // 'mailmerge', is the dropdown menu
         ['view',['fullscreen','codeview']],
         ['help',['help']]
     ],
-    lorem:{
-        el:'.summernote', // Element ID or Class used to Initialise Summernote.
-        html: true // Place Lorem Ipsum Paragraphs inside <p> or set to false to not too.
+    mailmerge: {
+        menu: [
+            ['Parent Name', '::parent_name::'], // adds an option in the Mail Merge dropdown for "Parent Name" which inserts the text "::parent_name::"
+            ['Report Type', '::report_type::'],
+            ['Report Date', '::report_month::']
+        ]
     }
 });
 ````
-
-#### 4. Check out our other Summernote Plugins via our main Github page.
-- [Diemen Design](https://github.com/DiemenDesign/)
